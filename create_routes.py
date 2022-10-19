@@ -2,7 +2,7 @@
 
 import subprocess
 import os
-import commands
+#import commands
 
 os.system('vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network 2001:2022:3:3::/126" -c "do show run"')
 #output = commands.getoutput(#"vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network 2001:2022:3:3::/64" -c "do show run"")
