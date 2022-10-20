@@ -2,6 +2,7 @@
 
 import os
 import time
+from subprocess import check_output, STDOUT
 
 os.system('vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network 2001:2022:3:3::/126" -c "do show run"')
 #I prefer subprocess over os.system, but all the -c's and quotation weirdness - including having to remain in config t in order for the network commands to work -
@@ -20,8 +21,5 @@ for i in range(0, 3):      # increment the addresses
 
 
 for i in array:
-    os.system('vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network 'i '-c "do show run"')
-    time.sleep(2)
-
-
-
+    cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network {0}" -c "do show run"'.format(i)
+    os.system(cmd)
