@@ -27,11 +27,17 @@ yes = {'yes','y', 'ye', ''}
 no = {'no','n'}
 choice = raw_input().lower()
 if choice in yes:
-   for i in array:
-    cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "no network {0}" -c "do show run"'.format(i)
-    os.system(cmd)
-    time.sleep(1)
+   
 elif choice in no:
    return False
 else:
    sys.stdout.write("Please respond with 'yes' or 'no'")
+
+
+def delete_routes(array = ['2001:2022:3:3::4/128', '2001:2022:3:3::8/128', '2001:2022:3:3::c/128']):
+    for i in array:
+        cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "no network {0}" -c "do show run"'.format(i)
+        os.system(cmd)
+        time.sleep(1)
+
+         #cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "no network {0}" -c "do show run"'.format(i)
