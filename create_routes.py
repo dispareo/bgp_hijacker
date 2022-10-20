@@ -23,3 +23,4 @@ for i in range(0, 3):      # increment the addresses
 for i in array:
     cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network {0}" -c "do show run"'.format(i)
     os.system(cmd)
+    time.sleep(2)
