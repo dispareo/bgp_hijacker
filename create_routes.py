@@ -11,7 +11,7 @@ import sys
 
 array = []
 varhex = "00" # starting hex value
-for i in range(0, 3):      # increment the addresses
+for i in range(0, 50):      # increment the addresses
     i = int(varhex, 16)     # define i as the decimal equivalent of varhex
     i +=4                   # increment i by one
     print("2001:2022:3:3::" + hex(i)[2:] + "128")  
