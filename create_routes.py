@@ -1,8 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import time
 from subprocess import check_output, STDOUT
+import sys
 
 #os.system('vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network 2001:2022:3:3::/126" -c "do show run"')
 #I prefer subprocess over os.system, but all the -c's and quotation weirdness - including having to remain in config t in order for the network commands to work -
@@ -17,17 +18,21 @@ for i in range(0, 3):      # increment the addresses
     array.append("2001:2022:3:3::" + hex(i)[2:] + "/128");    # print out the incremented value, but in hex form
     varhex = hex(i)
 
-
 for i in array:
     cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network {0}" -c "do show run"'.format(i)
     os.system(cmd)
     time.sleep(1)
 
-delete = input("do you want to delete the routes now? (yes/no)")
-if(delete = "yes"):
-    for i in array:
-        cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "no network {0}" -c "do show run"'.format(i)
-        os.system(cmd)
-        time.sleep(1)
+yes = {'yes','y', 'ye', ''}
+no = {'no','n'}
+choice = raw_input().lower()
+if choice in yes:
+   for i in array:
+    cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "no network {0}" -c "do show run"'.format(i)
+    os.system(cmd)
+    time.sleep(1)
+    
+elif choice in no:
+   return False
 else:
-    print("Bye, Felicia")
+   sys.stdout.write("Please respond with 'yes' or 'no'")
