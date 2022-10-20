@@ -27,7 +27,7 @@ yes = {'yes','y', 'ye', ''}
 no = {'no','n'}
 choice = raw_input().lower()
 if choice in yes:
-   
+   delete_routes()
 elif choice in no:
    return False
 else:
