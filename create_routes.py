@@ -31,7 +31,6 @@ if choice in yes:
     cmd = 'vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "no network {0}" -c "do show run"'.format(i)
     os.system(cmd)
     time.sleep(1)
-    
 elif choice in no:
    return False
 else:
