@@ -20,5 +20,8 @@ for i in range(0, 3):      # increment the addresses
 
 
 for i in array:
-    os.system('vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network (i)" -c "do show run"')
+    os.system('vtysh -c "sh run" -c "config t" -c "router bgp 1000" -c "address-family ipv6 unicast" -c "network 'i '-c "do show run"')
     time.sleep(2)
+
+
+
