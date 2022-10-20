@@ -15,7 +15,7 @@ for i in range(0, 3):      # increment the addresses
     i = int(varhex, 16)     # define i as the decimal equivalent of varhex
     i +=4                   # increment i by one
     print("2001:2022:3:3::" + hex(i)[2:] + "128")  
-    array.append("2001:2022:3:3::" + hex(i)[2:] + "128");    # print out the incremented value, but in hex form
+    array.append("2001:2022:3:3::" + hex(i)[2:] + "/128");    # print out the incremented value, but in hex form
     varhex = hex(i)
 
 
