@@ -13,8 +13,7 @@ int64_t millis()
 int main (void)
 {
         FILE *fp;
-        fp = fopen("Output.txt", "w");// "w" means that we are going to write on this file
-        fprintf(fp, "Unix timestamp with millisecond precision: %ld\n", millis());
-        printf("Unix timestamp with millisecond precision: %" PRId64 "\n", millis());
+        fp = fopen("Output.txt", "a");// "w" means that we are going to write on this file
+        fprintf(fp, "BGP packet first received: %ld\n", millis());
         fclose(fp);
 }
