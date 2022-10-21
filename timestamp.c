@@ -9,11 +9,10 @@ int64_t millis()
     return ((int64_t) now.tv_sec) * 1000 + ((int64_t) now.tv_nsec) / 1000000;
 }
 
-
 int print_to_file (void)
 {
         FILE *fp;
-        fp = fopen("Output.txt", "a");// "w" means that we are going to write on this file
-        fprintf(fp, "BGP packet first received: %ld\n", millis());
+        fp = fopen("/tmp/timestamps.txt", "a");// TIL "a" means append. 
+        fprintf(fp, "BGP packet first received: %lld\n", millis());
         fclose(fp);
 }
