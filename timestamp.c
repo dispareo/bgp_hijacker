@@ -10,7 +10,7 @@ int64_t millis()
 }
 
 
-int main (void)
+int print_to_file (void)
 {
         FILE *fp;
         fp = fopen("Output.txt", "a");// "w" means that we are going to write on this file
